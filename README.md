@@ -3,8 +3,27 @@ precedence
 
 Precedence AND and OR operations for JavaScript.
 
+The problem
+---
+
+Since `""`, `0`, `NaN`, and so on, are considered falsy on expression
+evaluations, sometimes you might get unexpected results.
+
+**Example:**
+
+```
+var value = false || 0 || "" || NaN || 5
+console.log(value)
+// => 5
+```
+
+But, wait, `0` should've been considered a valid value, shouldn't it? WTF JS TYPES
+
 Usage
 ---
+
+`precedence` tackles this problem by considering only `undefined`, `null`, and
+`false` as falsy.
 
 **OR**:
 
